@@ -8,6 +8,9 @@ const current = () => root.dataset.theme || (systemLight.matches ? 'light' : 'da
 document.querySelector('.theme-toggle')?.addEventListener('click', () => {
   const next = current() === 'dark' ? 'light' : 'dark'
   root.dataset.theme = next
+  document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+    m.content = next === 'light' ? '#f6f7f9' : '#050608'
+  })
   try {
     localStorage.setItem('theme', next)
   } catch (e) {

@@ -6,7 +6,8 @@
   <title>Joshuel · Site Reliability Engineer</title>
   <meta name="description" content="Site Reliability Engineer and DevOps Engineer keeping business-critical 24/7 production stable and secure on AWS and Kubernetes. Open to remote roles with international teams.">
   <link rel="canonical" href="https://joshuel.com.br/">
-  <meta name="theme-color" content="#050608">
+  <meta name="theme-color" content="#050608" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="profile">
@@ -23,7 +24,13 @@
   <!-- O tema escolhido entra antes de pintar a página (sem piscar). -->
   <script>
     document.documentElement.classList.add("js");
-    try { var t = localStorage.getItem("theme"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+    try {
+      var t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") {
+        document.documentElement.dataset.theme = t;
+        document.querySelectorAll('meta[name="theme-color"]').forEach(function (m) { m.content = t === "light" ? "#f6f7f9" : "#050608"; });
+      }
+    } catch (e) {}
   </script>
   <script type="application/ld+json">
   {
@@ -107,7 +114,7 @@
         <div class="hero__art">
           <picture>
             <source srcset="/img/emblem-384.webp 384w, /img/emblem-192.webp 192w" sizes="(max-width: 860px) 104px, 384px" type="image/webp">
-            <img class="emblem" src="/img/emblem-384.webp" width="384" height="384" alt="Jonoma IT emblem: a cloud with a dog and an infinity loop" fetchpriority="high">
+            <img class="emblem" src="/img/emblem-384.webp" width="384" height="384" fetchpriority="high" alt="Jonoma IT emblem: a cloud with a dog and an infinity loop" fetchpriority="high">
           </picture>
         </div>
       </div>
