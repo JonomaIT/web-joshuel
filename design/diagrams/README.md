@@ -5,11 +5,13 @@ architecture icons. The `.drawio` files are the source: open them in draw.io, ed
 
 | File | Shows |
 |---|---|
-| `aws-accounts.drawio` | The AWS Organization: accounts, OUs and what the bootstrap puts in every account |
-| `github.drawio` | The repos and the workflows: plan, approval, apply, drift, build, deploy |
-| `network.drawio` | Production network in two regions: VPCs, subnets, NAT, ALB, peering, Cloudflare |
-| `ecs.drawio` | The ECS cluster and the sales services with their data |
+| `aws-accounts.drawio` | The six accounts and what each one is for |
+| `github.drawio` | A change from pull request to AWS: plan, approve, apply |
+| `network.drawio` | One region's network: Cloudflare, load balancer, app containers, NAT |
+| `ecs.drawio` | A sale through the ECS services, from the request until it is processed |
 | `eks-planned.drawio` | The planned EKS design (not built yet) |
+
+Keep them simple: one idea per diagram, few boxes, short labels, left to right.
 
 ## Export for the site
 
