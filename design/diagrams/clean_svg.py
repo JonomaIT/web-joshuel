@@ -2,7 +2,7 @@
 """Clean draw.io SVG exports for the site: drop the PNG fallbacks of the HTML labels, the external
 "Text is not SVG" link, and the light-dark() colours (always the light value), then report sizes.
 
-    python3 -I svg_clean.py <src-dir> <dst-dir>
+    python3 -I clean_svg.py <src-dir> <dst-dir>
 """
 import re
 import sys

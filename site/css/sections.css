@@ -177,7 +177,7 @@
 }
 
 .hero__smile {
-  color: var(--accent);
+  color: var(--metric-3); /* âmbar no escuro, ember-600 no claro (contraste) */
 }
 
 .hero__role {
@@ -431,15 +431,8 @@
   gap: var(--space-1);
 }
 
-/* celular: as abas numa linha só, rolando de lado */
+/* celular: as abas quebram linha, todas visíveis */
 @media (max-width: 760px) {
-  .js .arch-tabs__list {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    padding-bottom: var(--space-1);
-  }
-
   .arch-tabs__tab {
     flex: none;
     padding: 0 var(--space-3);
@@ -498,6 +491,18 @@
   width: 100%;
   min-width: 36rem;
   height: auto;
+}
+
+.arch-open {
+  display: block;
+}
+
+/* celular: perto do tamanho original, para o texto do diagrama continuar legível; o quadro rola de
+   lado e o toque abre o SVG inteiro, com zoom */
+@media (max-width: 760px) {
+  .arch-wrap img {
+    min-width: 60rem;
+  }
 }
 
 .project__title {
