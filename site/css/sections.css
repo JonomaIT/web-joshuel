@@ -267,8 +267,18 @@
   gap: var(--space-1) var(--space-3);
 }
 
-.job__side .org__mark {
+.job__side .org__mark,
+.job__side .org__logo {
   grid-row: span 2;
+}
+
+/* logo oficial da empresa (WebP local, sem metadados) */
+.org__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  object-fit: cover;
 }
 
 .org__mark--lg {
