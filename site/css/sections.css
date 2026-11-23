@@ -136,6 +136,19 @@
   background: var(--surface);
 }
 
+/* sem retrato: o emblema quadrado, inteiro, no lugar da foto */
+.hero__photo--emblem img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 0;
+  background: var(--emblem-tile);
+  border-radius: 22%;
+}
+
+.hero__photo--emblem::after {
+  display: none;
+}
+
 .hero__photo::after {
   content: "";
   position: absolute;
@@ -222,6 +235,10 @@
 
   .hero__photo {
     width: min(100%, 16rem);
+  }
+
+  .hero__photo--emblem {
+    width: 6.5rem;
   }
 }
 
