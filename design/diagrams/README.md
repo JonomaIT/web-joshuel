@@ -8,7 +8,7 @@ architecture icons. The `.drawio` files are the source: open them in draw.io, ed
 | `aws-accounts.drawio` | management on top; Security, Shared and Workloads under it |
 | `github.drawio` | The organization, OIDC, and the reusable workflows in three lanes: infra, sites, services |
 | `network.drawio` | The production VPC in us-east-1: Cloudflare in front, two AZs, public and private subnets with their CIDRs, one NAT, gateway endpoints |
-| `ecs.drawio` | A sale through svc-sales-api and svc-sales-worker in two active regions, with the replicated data and the standby copies |
+| `ecs.drawio` | An example app (API and worker) active in two regions: the ECS clusters, the replicated data and the standby copies for failover |
 | `eks-planned.drawio` | The planned EKS design (not built yet) |
 
 Keep them simple: one idea per diagram, few boxes, short labels, left to right.
