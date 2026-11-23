@@ -84,12 +84,25 @@
 }
 
 
+/* celular: o menu continua numa linha; o nome sai, o emblema fica */
 @media (max-width: 760px) {
-  .nav__links {
-    display: none;
+  .site-header__bar {
+    gap: var(--space-2);
   }
 
   .brand__name {
+    display: none;
+  }
+
+  .nav__links {
+    gap: 0;
+  }
+
+  .nav__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding-inline: var(--space-2);
     font-size: var(--text-xs);
   }
 }
@@ -101,14 +114,40 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
   align-items: center;
   gap: var(--space-12);
 }
 
+/* a foto: um cartão com borda fina e um eco do gradiente embaixo */
+.hero__photo {
+  position: relative;
+  margin: 0;
+}
+
+.hero__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: auto var(--space-6) calc(-1 * var(--space-2));
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--brand-gradient);
+}
+
 .hero__copy {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-5);
   justify-items: start;
 }
 
@@ -117,14 +156,55 @@
   letter-spacing: -0.035em;
 }
 
+.hero__hi {
+  display: block;
+  font: 500 var(--text-lg) / 1.4 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.hero__smile {
+  color: var(--accent);
+}
+
 .hero__role {
   font: 500 var(--text-sm) / 1.4 var(--font-mono);
   color: var(--text-muted);
 }
 
+.hero__tagline {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+}
+
 .hero__lead {
-  max-width: 36rem;
+  max-width: 38rem;
   font-size: var(--text-lg);
+  color: var(--text-muted);
+}
+
+/* empresa no meio do texto: monograma + nome, sem quebrar entre os dois */
+.org {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35em;
+  white-space: nowrap;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.org__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1.35em;
+  height: 1.35em;
+  align-self: center;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  font: 600 0.7em / 1 var(--font-mono);
   color: var(--text-muted);
 }
 
@@ -141,16 +221,6 @@
   margin-left: var(--space-2);
 }
 
-.hero__art {
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-.hero__art .emblem {
-  width: min(100%, 24rem);
-}
-
 @media (max-width: 860px) {
   .hero {
     padding-top: var(--space-10);
@@ -161,13 +231,8 @@
     gap: var(--space-8);
   }
 
-  .hero__art {
-    order: -1;
-    justify-items: start;
-  }
-
-  .hero__art .emblem {
-    width: 6.5rem;
+  .hero__photo {
+    width: min(100%, 16rem);
   }
 }
 

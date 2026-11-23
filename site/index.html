@@ -64,6 +64,7 @@
       <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></g></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></g></symbol>
     </defs>
   </svg>
 
@@ -78,7 +79,8 @@
       <nav class="nav" aria-label="Sections">
         <ul class="nav__links" role="list">
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#stack">Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light and dark theme">
@@ -94,11 +96,21 @@
     <!-- ------------------------------------------------------------ hero -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero__grid">
+        <!-- TODO(fotos): trocar pelo retrato (site/img/photos/portrait-480.webp e -960.webp, sem EXIF). -->
+        <figure class="hero__photo">
+          <img src="/img/photos/placeholder.svg" width="400" height="500" fetchpriority="high" alt="Portrait of Joshuel">
+        </figure>
         <div class="hero__copy">
           <span class="status">open to remote roles with international teams</span>
+          <h1 class="hero__title" id="hero-title"><span class="hero__hi">Hi! I'm</span> Joshuel <span class="hero__smile" aria-hidden="true">:)</span></h1>
           <p class="hero__role">Site Reliability Engineer · DevOps · AWS · Kubernetes</p>
-          <h1 class="hero__title" id="hero-title">Infrastructure that <span class="gradient-text">doesn't stop</span>.</h1>
-          <p class="hero__lead">I keep business-critical 24/7 production environments stable and secure. I bring experience running Kubernetes and AWS in large-scale environments, and today I own an AWS platform end to end: reliability, incident response, security documentation and disaster recovery.</p>
+          <p class="hero__tagline">Infrastructure that <span class="gradient-text">doesn't stop</span>.</p>
+          <p class="hero__lead">I've kept business-critical 24/7 production running at
+            <span class="org"><span class="org__mark" aria-hidden="true">S</span>Smartrips</span>,
+            <span class="org"><span class="org__mark" aria-hidden="true">C</span>CI&amp;T</span> (Bradesco),
+            <span class="org"><span class="org__mark" aria-hidden="true">P</span>Pague Menos</span> and
+            <span class="org"><span class="org__mark" aria-hidden="true">A</span>Instituto Atlântico</span>.
+            Today I own an AWS platform end to end: reliability, incident response, security documentation and disaster recovery.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contact">Get in touch</a>
             <a class="btn btn--secondary" href="/Joshuel_Nobre_Resume_EN.pdf" download>
@@ -110,12 +122,6 @@
               <a class="icon-btn" href="mailto:joshuel@joshuel.com.br" aria-label="Email"><svg aria-hidden="true"><use href="#i-mail"/></svg></a>
             </span>
           </div>
-        </div>
-        <div class="hero__art">
-          <picture>
-            <source srcset="/img/emblem-384.webp 384w, /img/emblem-192.webp 192w" sizes="(max-width: 860px) 104px, 384px" type="image/webp">
-            <img class="emblem" src="/img/emblem-384.webp" width="384" height="384" fetchpriority="high" alt="Jonoma IT emblem: a cloud with a dog and an infinity loop" fetchpriority="high">
-          </picture>
         </div>
       </div>
     </section>
