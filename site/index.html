@@ -105,12 +105,7 @@
           <h1 class="hero__title" id="hero-title"><span class="hero__hi">Hi! I'm</span> Joshuel <span class="hero__smile" aria-hidden="true">:)</span></h1>
           <p class="hero__role">Site Reliability Engineer · DevOps · AWS · Kubernetes</p>
           <p class="hero__tagline">Infrastructure that <span class="gradient-text">doesn't stop</span>.</p>
-          <p class="hero__lead">I've kept business-critical 24/7 production running at
-            <span class="org"><span class="org__mark" aria-hidden="true">S</span>Smartrips</span>,
-            <span class="org"><span class="org__mark" aria-hidden="true">C</span>CI&amp;T</span> (Bradesco),
-            <span class="org"><span class="org__mark" aria-hidden="true">P</span>Pague Menos</span> and
-            <span class="org"><span class="org__mark" aria-hidden="true">A</span>Instituto Atlântico</span>.
-            Today I own an AWS platform end to end: reliability, incident response, security documentation and disaster recovery.</p>
+          <p class="hero__lead">I keep business-critical 24/7 production environments stable and secure, on Kubernetes, Linux and AWS. Today I own an AWS platform end to end: reliability, incident response, security documentation and disaster recovery.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contact">Get in touch</a>
             <a class="btn btn--secondary" href="/Joshuel_Nobre_Resume_EN.pdf" download>
@@ -133,68 +128,86 @@
           <span class="eyebrow">Experience</span>
           <h2 class="section__title" id="experience-title">Production is where I work</h2>
         </div>
+        <!-- Conteúdo do currículo de 2026-11-22 (Joshuel_Nobre_Resume_EN.docx). Fotos por empresa:
+             uma .gallery dentro de .job__body, até 3 imagens WebP sem EXIF, loading="lazy". -->
         <ol class="timeline" role="list">
           <li class="job job--current reveal">
-            <p class="job__when">Oct 2024 — present</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer / SRE <span class="job__company">· Smartrips</span></h3>
+            <div class="job__side">
+              <span class="org__mark org__mark--lg" aria-hidden="true">S</span>
+              <p class="job__company-name">Smartrips</p>
+              <p class="job__when">Oct 2024 — present</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer / SRE</h3>
               <ul class="job__points">
-                <li>Focal point for infrastructure, security and incident response for the production platform on AWS.</li>
-                <li>The entire AWS infrastructure in Terraform (EKS, RDS, ElastiCache, SQS, CloudFront and more) as versioned modules; GitOps with FluxCD and Helm.</li>
-                <li>Built the observability stack with Prometheus, Grafana, Loki, Tempo and OpenTelemetry, with dashboards for SLIs and SLOs.</li>
-                <li>Zero-downtime EKS upgrades in production; retired the VPN for Cloudflare Zero Trust and brought vulnerability findings to zero.</li>
+                <li>Focal point for infrastructure, security and incident response for the production platform on AWS, including the security documentation and the disaster recovery strategy.</li>
+                <li>The entire AWS infrastructure in Terraform (EKS, RDS, ElastiCache, SQS, CloudFront and more) as versioned modules; CI/CD on GitHub Actions with shared reusable workflows, deploying to Kubernetes with Helm.</li>
+                <li>Zero-downtime EKS upgrades in production, and an observability stack with Prometheus, Grafana, Loki, Tempo and OpenTelemetry, with dashboards for SLIs and SLOs.</li>
+                <li>Retired the VPN for Cloudflare Zero Trust, and brought container image and AWS findings to zero with recurring Trivy scans and hardened workloads.</li>
               </ul>
+              <!-- TODO(fotos): trocar os placeholders pelas fotos da Smartrips (ou remover a galeria). -->
+              <div class="gallery" role="region" aria-label="Photos from Smartrips" tabindex="0">
+                <img src="/img/photos/placeholder.svg" width="400" height="500" loading="lazy" alt="Photo from Smartrips (coming soon)">
+                <img src="/img/photos/placeholder.svg" width="400" height="500" loading="lazy" alt="Photo from Smartrips (coming soon)">
+              </div>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Oct 2025 — Mar 2026</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· iRede</span></h3>
-              <ul class="job__points">
-                <li>AWS infrastructure in Terraform with reusable, versioned modules.</li>
-                <li>CI/CD pipelines on Azure DevOps and AWS Lambda functions for automation and integrations.</li>
-              </ul>
+            <div class="job__side">
+              <span class="org__mark org__mark--lg" aria-hidden="true">C</span>
+              <p class="job__company-name">CI&amp;T <span class="job__client">· Bradesco project</span></p>
+              <p class="job__when">Dec 2024 — Oct 2025</p>
             </div>
-          </li>
-          <li class="job reveal">
-            <p class="job__when">Dec 2024 — Oct 2025</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· CI&amp;T, Bradesco project</span></h3>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer</h3>
               <ul class="job__points">
                 <li>Modernized infrastructure and DevSecOps pipelines for a bank in the regulated financial sector.</li>
-                <li>GitOps with Argo CD and progressive delivery with Argo Rollouts (canary) for critical applications.</li>
-                <li>Operational support and troubleshooting for AKS in production; Terraform and Helm.</li>
+                <li>GitOps with Argo CD and progressive delivery with Argo Rollouts (canary), lowering release risk for critical applications.</li>
+                <li>Troubleshooting and operational support for AKS in production; Terraform and Helm for microservices.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Aug 2023 — Nov 2024</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· Farmácias Pague Menos</span></h3>
+            <div class="job__side">
+              <span class="org__mark org__mark--lg" aria-hidden="true">P</span>
+              <p class="job__company-name">Farmácias Pague Menos</p>
+              <p class="job__when">Aug 2023 — Nov 2024</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer</h3>
               <ul class="job__points">
-                <li>Sustained 24/7 production for more than 1,600 stores, focused on stability and fewer incidents.</li>
+                <li>Sustained 24/7 production supporting more than 1,600 stores, focused on stability and fewer incidents.</li>
+                <li>Led change requests and overnight releases, with post-deploy validation and rollback plans.</li>
                 <li>Kubernetes (vanilla and EKS) in Rancher and an Istio service mesh observed through Kiali.</li>
                 <li>Canary and blue-green deployments with zero downtime; Azure DevOps automated end to end, up to the Helm deploy.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Nov 2022 — Aug 2023</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· Instituto Atlântico</span></h3>
+            <div class="job__side">
+              <span class="org__mark org__mark--lg" aria-hidden="true">A</span>
+              <p class="job__company-name">Instituto Atlântico</p>
+              <p class="job__when">Nov 2022 — Aug 2023</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer</h3>
               <ul class="job__points">
-                <li>Linux, Windows, Docker and Kubernetes in production, with infrastructure as code in Terraform.</li>
-                <li>CI/CD on Azure DevOps with SonarQube; compute and storage for an AI project on medical reports.</li>
+                <li>Linux and Windows infrastructure, Docker and Kubernetes in production, with infrastructure as code in Terraform.</li>
+                <li>CI/CD on Azure DevOps with SonarQube static analysis; compute and storage for an AI project on medical reports.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Nov 2021 — Oct 2022</p>
-            <div>
-              <h3 class="job__role">Backend Developer → Data Scientist <span class="job__company">· where I started</span></h3>
+            <div class="job__side">
+              <span class="org__mark org__mark--lg" aria-hidden="true">&lt;/&gt;</span>
+              <p class="job__company-name">Where I started</p>
+              <p class="job__when">Nov 2021 — Oct 2022</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">Backend Developer → Data Scientist</h3>
               <ul class="job__points">
-                <li>Built Python (FastAPI) and TypeScript (NestJS, GraphQL) APIs with PostgreSQL, auth and unit, integration and E2E tests, shipped in Docker, at Dell Lead, LAPISCO/IFCE and Polo de Inovação IFCE.</li>
-                <li>Wrote a computer vision backend in Python for people, object and motion detection at Engineering Brasil.</li>
+                <li>Python (FastAPI) and TypeScript (NestJS, GraphQL) APIs with PostgreSQL, auth and unit, integration and E2E tests, shipped in Docker, at Dell Lead, LAPISCO/IFCE and Polo de Inovação IFCE.</li>
+                <li>A computer vision backend in Python for people, object and motion detection at Engineering Brasil.</li>
                 <li>Those years still shape how I work as an SRE: during an incident I read the code, not only the dashboards.</li>
               </ul>
             </div>
@@ -213,15 +226,15 @@
         <div class="stack">
           <div class="stack__group reveal">
             <h3>Cloud and IaC</h3>
-            <ul class="chips" role="list"><li class="chip">AWS</li><li class="chip">EKS</li><li class="chip">RDS</li><li class="chip">ElastiCache</li><li class="chip">SQS</li><li class="chip">Lambda</li><li class="chip">IAM and KMS</li><li class="chip">CloudFront</li><li class="chip">Terraform</li><li class="chip">CloudFormation</li></ul>
+            <ul class="chips" role="list"><li class="chip">AWS</li><li class="chip">EKS</li><li class="chip">EC2</li><li class="chip">RDS</li><li class="chip">ElastiCache</li><li class="chip">SQS</li><li class="chip">S3</li><li class="chip">Lambda</li><li class="chip">IAM and KMS</li><li class="chip">CloudFront</li><li class="chip">Route53</li><li class="chip">CloudTrail</li><li class="chip">GuardDuty</li><li class="chip">Terraform</li><li class="chip">CloudFormation</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>Kubernetes and containers</h3>
-            <ul class="chips" role="list"><li class="chip">EKS</li><li class="chip">AKS</li><li class="chip">Kubernetes</li><li class="chip">Rancher</li><li class="chip">Helm</li><li class="chip">Istio</li><li class="chip">RBAC</li><li class="chip">HPA</li><li class="chip">Docker</li></ul>
+            <ul class="chips" role="list"><li class="chip">EKS</li><li class="chip">AKS</li><li class="chip">Kubernetes</li><li class="chip">Rancher</li><li class="chip">Helm</li><li class="chip">Istio</li><li class="chip">RBAC</li><li class="chip">HPA</li><li class="chip">Docker</li><li class="chip">containerd</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>CI/CD and GitOps</h3>
-            <ul class="chips" role="list"><li class="chip">Argo CD</li><li class="chip">Argo Rollouts</li><li class="chip">FluxCD</li><li class="chip">GitHub Actions</li><li class="chip">Azure DevOps</li></ul>
+            <ul class="chips" role="list"><li class="chip">Argo CD</li><li class="chip">Argo Rollouts</li><li class="chip">GitHub Actions</li><li class="chip">Azure DevOps</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>Observability</h3>
@@ -229,7 +242,7 @@
           </div>
           <div class="stack__group reveal">
             <h3>Networking and security</h3>
-            <ul class="chips" role="list"><li class="chip">VPC</li><li class="chip">DNS and TLS</li><li class="chip">WAF</li><li class="chip">Cloudflare Zero Trust</li><li class="chip">Network Policies</li><li class="chip">securityContext</li><li class="chip">Trivy</li></ul>
+            <ul class="chips" role="list"><li class="chip">VPC</li><li class="chip">DNS and TLS</li><li class="chip">WAF</li><li class="chip">ZTNA (Cloudflare Zero Trust)</li><li class="chip">IAM</li><li class="chip">securityContext</li><li class="chip">Trivy</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>Linux and automation</h3>

@@ -185,26 +185,15 @@
   color: var(--text-muted);
 }
 
-/* empresa no meio do texto: monograma + nome, sem quebrar entre os dois */
-.org {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35em;
-  white-space: nowrap;
-  color: var(--text);
-  font-weight: 500;
-}
-
+/* monograma de uma empresa (na linha do tempo) */
 .org__mark {
   display: inline-grid;
   place-items: center;
-  width: 1.35em;
-  height: 1.35em;
-  align-self: center;
-  border-radius: var(--radius-sm);
   border: 1px solid var(--border-strong);
   background: var(--surface-raised);
-  font: 600 0.7em / 1 var(--font-mono);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  line-height: 1;
   color: var(--text-muted);
 }
 
@@ -240,6 +229,8 @@
 .timeline {
   display: grid;
   gap: 0;
+  padding: 0;
+  list-style: none;
   border-left: 1px solid var(--border-strong);
   margin-left: var(--space-2);
 }
@@ -247,8 +238,8 @@
 .job {
   position: relative;
   display: grid;
-  grid-template-columns: 12rem minmax(0, 1fr);
-  gap: var(--space-2) var(--space-8);
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: var(--space-4) var(--space-8);
   padding: 0 0 var(--space-10) var(--space-8);
 }
 
@@ -269,9 +260,38 @@
   background: var(--status);
 }
 
+.job__side {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
+  gap: var(--space-1) var(--space-3);
+}
+
+.job__side .org__mark {
+  grid-row: span 2;
+}
+
+.org__mark--lg {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.job__company-name {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.job__client {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 .job__when {
-  font: var(--text-xs) / 1.8 var(--font-mono);
+  font: var(--text-xs) / 1.6 var(--font-mono);
   color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
 }
 
 .job__role {
@@ -280,9 +300,29 @@
   line-height: 1.35;
 }
 
-.job__company {
-  color: var(--text-muted);
-  font-weight: 400;
+/* fotos de uma experiência: uma faixa que rola de lado, sem rotação automática */
+.gallery {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(11rem, 42%);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-bottom: var(--space-2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  border-radius: var(--radius-md);
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .job__points {
