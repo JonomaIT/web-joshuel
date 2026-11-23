@@ -64,6 +64,8 @@
       <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></g></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></g></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></g></symbol>
     </defs>
   </svg>
 
@@ -78,7 +80,8 @@
       <nav class="nav" aria-label="Sections">
         <ul class="nav__links" role="list">
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#stack">Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="icon-btn theme-toggle" type="button" aria-label="Toggle light and dark theme">
@@ -94,11 +97,20 @@
     <!-- ------------------------------------------------------------ hero -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="container hero__grid">
+        <!-- Sem retrato por enquanto (o usuário vai tirar uma foto nova): o emblema ocupa o lugar.
+             Para o retrato: <figure class="hero__photo"> com um WebP 4:5 sem metadados. -->
+        <figure class="hero__photo hero__photo--emblem">
+          <picture>
+            <source srcset="/img/emblem-384.webp 384w, /img/emblem-192.webp 192w" sizes="(max-width: 860px) 8rem, 20rem" type="image/webp">
+            <img class="emblem" src="/img/emblem-384.webp" width="384" height="384" fetchpriority="high" alt="Jonoma IT emblem: a cloud with a dog and an infinity loop">
+          </picture>
+        </figure>
         <div class="hero__copy">
           <span class="status">open to remote roles with international teams</span>
+          <h1 class="hero__title" id="hero-title"><span class="hero__hi">Hi! I'm</span> Joshuel <span class="hero__smile" aria-hidden="true">:)</span></h1>
           <p class="hero__role">Site Reliability Engineer · DevOps · AWS · Kubernetes</p>
-          <h1 class="hero__title" id="hero-title">Infrastructure that <span class="gradient-text">doesn't stop</span>.</h1>
-          <p class="hero__lead">I keep business-critical 24/7 production environments stable and secure. I bring experience running Kubernetes and AWS in large-scale environments, and today I own an AWS platform end to end: reliability, incident response, security documentation and disaster recovery.</p>
+          <p class="hero__tagline">Infrastructure that <span class="gradient-text">doesn't stop</span>.</p>
+          <p class="hero__lead">I keep business-critical 24/7 production environments stable and secure, on Kubernetes, Linux and AWS. Today I own an AWS platform end to end: reliability, incident response, security documentation and disaster recovery.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contact">Get in touch</a>
             <a class="btn btn--secondary" href="/Joshuel_Nobre_Resume_EN.pdf" download>
@@ -111,12 +123,6 @@
             </span>
           </div>
         </div>
-        <div class="hero__art">
-          <picture>
-            <source srcset="/img/emblem-384.webp 384w, /img/emblem-192.webp 192w" sizes="(max-width: 860px) 104px, 384px" type="image/webp">
-            <img class="emblem" src="/img/emblem-384.webp" width="384" height="384" fetchpriority="high" alt="Jonoma IT emblem: a cloud with a dog and an infinity loop" fetchpriority="high">
-          </picture>
-        </div>
       </div>
     </section>
 
@@ -127,73 +133,167 @@
           <span class="eyebrow">Experience</span>
           <h2 class="section__title" id="experience-title">Production is where I work</h2>
         </div>
+        <!-- Conteúdo do currículo de 2026-11-22 (Joshuel_Nobre_Resume_EN.docx). Fotos por empresa:
+             uma .gallery dentro de .job__body, até 3 imagens WebP sem EXIF, loading="lazy". -->
         <ol class="timeline" role="list">
           <li class="job job--current reveal">
-            <p class="job__when">Oct 2024 — present</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer / SRE <span class="job__company">· Smartrips</span></h3>
+            <div class="job__side">
+              <img class="org__logo" src="/img/logos/smartrips.webp" width="40" height="40" loading="lazy" alt="">
+              <p class="job__company-name">Smartrips</p>
+              <p class="job__when">Oct 2024 — present</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer / SRE</h3>
               <ul class="job__points">
-                <li>Focal point for infrastructure, security and incident response for the production platform on AWS.</li>
-                <li>The entire AWS infrastructure in Terraform (EKS, RDS, ElastiCache, SQS, CloudFront and more) as versioned modules; GitOps with FluxCD and Helm.</li>
-                <li>Built the observability stack with Prometheus, Grafana, Loki, Tempo and OpenTelemetry, with dashboards for SLIs and SLOs.</li>
-                <li>Zero-downtime EKS upgrades in production; retired the VPN for Cloudflare Zero Trust and brought vulnerability findings to zero.</li>
+                <li>Focal point for infrastructure, security and incident response for the production platform on AWS, including the security documentation and the disaster recovery strategy.</li>
+                <li>The entire AWS infrastructure in Terraform (EKS, RDS, ElastiCache, SQS, CloudFront and more) as versioned modules; CI/CD on GitHub Actions with shared reusable workflows, deploying to Kubernetes with Helm.</li>
+                <li>Zero-downtime EKS upgrades in production, and an observability stack with Prometheus, Grafana, Loki, Tempo and OpenTelemetry, with dashboards for SLIs and SLOs.</li>
+                <li>Retired the VPN for Cloudflare Zero Trust, and brought container image and AWS findings to zero with recurring Trivy scans and hardened workloads.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Oct 2025 — Mar 2026</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· iRede</span></h3>
-              <ul class="job__points">
-                <li>AWS infrastructure in Terraform with reusable, versioned modules.</li>
-                <li>CI/CD pipelines on Azure DevOps and AWS Lambda functions for automation and integrations.</li>
-              </ul>
+            <div class="job__side">
+              <img class="org__logo" src="/img/logos/ciandt.webp" width="40" height="40" loading="lazy" alt="">
+              <p class="job__company-name">CI&amp;T <span class="job__client">· Bradesco project</span></p>
+              <p class="job__when">Dec 2024 — Oct 2025</p>
             </div>
-          </li>
-          <li class="job reveal">
-            <p class="job__when">Dec 2024 — Oct 2025</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· CI&amp;T, Bradesco project</span></h3>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer</h3>
               <ul class="job__points">
                 <li>Modernized infrastructure and DevSecOps pipelines for a bank in the regulated financial sector.</li>
-                <li>GitOps with Argo CD and progressive delivery with Argo Rollouts (canary) for critical applications.</li>
-                <li>Operational support and troubleshooting for AKS in production; Terraform and Helm.</li>
+                <li>GitOps with Argo CD and progressive delivery with Argo Rollouts (canary), lowering release risk for critical applications.</li>
+                <li>Troubleshooting and operational support for AKS in production; Terraform and Helm for microservices.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Aug 2023 — Nov 2024</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· Farmácias Pague Menos</span></h3>
+            <div class="job__side">
+              <img class="org__logo" src="/img/logos/paguemenos.webp" width="40" height="40" loading="lazy" alt="">
+              <p class="job__company-name">Farmácias Pague Menos</p>
+              <p class="job__when">Aug 2023 — Nov 2024</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer</h3>
               <ul class="job__points">
-                <li>Sustained 24/7 production for more than 1,600 stores, focused on stability and fewer incidents.</li>
+                <li>Sustained 24/7 production supporting more than 1,600 stores, focused on stability and fewer incidents.</li>
+                <li>Led change requests and overnight releases, with post-deploy validation and rollback plans.</li>
                 <li>Kubernetes (vanilla and EKS) in Rancher and an Istio service mesh observed through Kiali.</li>
                 <li>Canary and blue-green deployments with zero downtime; Azure DevOps automated end to end, up to the Helm deploy.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Nov 2022 — Aug 2023</p>
-            <div>
-              <h3 class="job__role">DevOps Engineer <span class="job__company">· Instituto Atlântico</span></h3>
+            <div class="job__side">
+              <img class="org__logo" src="/img/logos/atlantico.webp" width="40" height="40" loading="lazy" alt="">
+              <p class="job__company-name">Instituto Atlântico</p>
+              <p class="job__when">Nov 2022 — Aug 2023</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">DevOps Engineer</h3>
               <ul class="job__points">
-                <li>Linux, Windows, Docker and Kubernetes in production, with infrastructure as code in Terraform.</li>
-                <li>CI/CD on Azure DevOps with SonarQube; compute and storage for an AI project on medical reports.</li>
+                <li>Linux and Windows infrastructure, Docker and Kubernetes in production, with infrastructure as code in Terraform.</li>
+                <li>CI/CD on Azure DevOps with SonarQube static analysis; compute and storage for an AI project on medical reports.</li>
               </ul>
             </div>
           </li>
           <li class="job reveal">
-            <p class="job__when">Nov 2021 — Oct 2022</p>
-            <div>
-              <h3 class="job__role">Backend Developer → Data Scientist <span class="job__company">· where I started</span></h3>
+            <div class="job__side">
+              <span class="org__mark org__mark--lg" aria-hidden="true"><svg><use href="#i-code"/></svg></span>
+              <p class="job__company-name">Where I started</p>
+              <p class="job__when">Nov 2021 — Oct 2022</p>
+            </div>
+            <div class="job__body">
+              <h3 class="job__role">Backend Developer</h3>
               <ul class="job__points">
-                <li>Built Python (FastAPI) and TypeScript (NestJS, GraphQL) APIs with PostgreSQL, auth and unit, integration and E2E tests, shipped in Docker, at Dell Lead, LAPISCO/IFCE and Polo de Inovação IFCE.</li>
-                <li>Wrote a computer vision backend in Python for people, object and motion detection at Engineering Brasil.</li>
-                <li>Those years still shape how I work as an SRE: during an incident I read the code, not only the dashboards.</li>
+                <li>Built Python APIs and backend services at Dell Lead and Polo de Inovação IFCE, using FastAPI and PostgreSQL, tested with Pytest and shipped in Docker.</li>
+                <li>Built GraphQL APIs in TypeScript (NestJS) at LAPISCO/IFCE, with authentication and authorization, and unit, integration and end-to-end tests.</li>
+                <li>Developed a computer vision backend in Python at Engineering Brasil, detecting people, objects and motion with HSV segmentation and Kalman filtering.</li>
               </ul>
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------ projects -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Projects</span>
+          <h2 class="section__title" id="projects-title">What I build on my own</h2>
+          <p class="section__lead">All open source on GitHub, all running on the same platform.</p>
+        </div>
+        <div class="projects">
+          <article class="card project project--featured reveal">
+            <!-- Diagramas em draw.io (design/diagrams/*.drawio), exportados em SVG limpo (design/diagrams/clean_svg.py). Sem JavaScript,
+                 os cinco aparecem em sequência; com JavaScript, viram abas. -->
+            <div class="arch-tabs" data-tabs>
+              <div class="arch-tabs__list" role="tablist" aria-label="Platform diagrams">
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-accounts" aria-controls="panel-accounts" aria-selected="true">AWS accounts</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-github" aria-controls="panel-github" aria-selected="false" tabindex="-1">GitHub</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-network" aria-controls="panel-network" aria-selected="false" tabindex="-1">Network</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-ecs" aria-controls="panel-ecs" aria-selected="false" tabindex="-1">ECS</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-eks" aria-controls="panel-eks" aria-selected="false" tabindex="-1">EKS <span class="arch-tabs__badge">planned</span></button>
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-accounts" aria-labelledby="tab-accounts" tabindex="0">
+                <a class="arch-open" href="/img/arch/aws-accounts.svg"><img src="/img/arch/aws-accounts.svg" width="971" height="531" alt="AWS Organization, one account per job. The management account is the main account (Organizations, Control Tower, SSO). Under it: Security, with log-archive (logs of every account) and audit (security checks); Shared, with shared-services (container images in ECR); and Workloads, with staging (test environment) and production (live, in two regions), both running ECS, CloudFront, Lambda and DynamoDB. Every account signs in GitHub through OIDC, with no keys, and has its own Terraform state."></a>
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-github" aria-labelledby="tab-github" tabindex="0">
+                <a class="arch-open" href="/img/arch/github.svg"><img src="/img/arch/github.svg" width="971" height="549" loading="lazy" alt="GitHub organization JonomaIT: every repo reuses the same workflows from the pipelines repo, and shares the organization's variables, the Cloudflare token secret, the teams and per-account environments. All AWS access goes through OIDC, with short-lived credentials and no stored keys. Three lanes: Infra (infrastructure, organization, terraform-modules): pull request, terraform-ci checks and a terraform-deploy plan, merge and approval per account, then terraform-deploy applies and runs a nightly drift check. Sites (web-*): pull request, build-static (lint, test, build), merge to main, deploy-app to S3 and the CDN. Services (svc-*): pull request, build-push (build and Trivy scan), merge with the image pushed to ECR, deploy-app to ECS in each region."></a>
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-network" aria-labelledby="tab-network" tabindex="0">
+                <a class="arch-open" href="/img/arch/network.svg"><img src="/img/arch/network.svg" width="1181" height="584" loading="lazy" alt="Network of the production VPC in us-east-1, 10.20.0.0/16, across two availability zones. Users reach Cloudflare, which sends HTTPS through the internet gateway to the load balancer in the public subnets (10.20.48.0/24 and 10.20.49.0/24); it only accepts Cloudflare IPs. The load balancer forwards to the app containers, ECS on Fargate with no public IP, in the private subnets (10.20.0.0/20 and 10.20.16.0/20). Containers in both zones go out through one NAT gateway in us-east-1a, to save cost. S3 and DynamoDB are reached through gateway endpoints, without the NAT. The other VPCs use the same layout: production sa-east-1, 10.120.0.0/16, peered with us-east-1, and staging, 10.10.0.0/16."></a>
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-ecs" aria-labelledby="tab-ecs" tabindex="0">
+                <a class="arch-open" href="/img/arch/ecs.svg"><img src="/img/arch/ecs.svg" width="1171" height="647" loading="lazy" alt="ECS: an app active in two regions, us-east-1 and sa-east-1, each with an ECS cluster on Fargate. Users reach Cloudflare, which balances between the regions with health checks. In each region the load balancer sends requests to the API service, which writes to a DynamoDB global table and publishes an event to an SNS topic; an SQS queue delivers it to the worker service, which writes files to S3. The table and the bucket are replicated between the regions, and each topic also copies every event to the other region's standby queue. If a region fails, Cloudflare sends its traffic to the other and that worker takes the standby copies; the worker is idempotent, so nothing runs twice. Every ECS service runs on Fargate with CPU auto scaling, rollback on a failed deploy, Service Connect between apps and logs in CloudWatch."></a>
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-eks" aria-labelledby="tab-eks" tabindex="0">
+                <a class="arch-open" href="/img/arch/eks-planned.svg"><img src="/img/arch/eks-planned.svg" width="1171" height="661" loading="lazy" alt="EKS, planned and not built yet: the platform on Kubernetes in two regions, us-east-1 and sa-east-1. Users reach Cloudflare, which balances between the regions. In each region a VPC across two availability zones holds a load balancer in the public subnets and an EKS cluster: the control plane is managed by AWS, and the EC2 nodes, Spot and On-Demand, are added by Karpenter in the private subnets of both zones. The nodes run the apps, Argo Rollouts and the load balancer controller, and the apps connect to AWS services such as DynamoDB, S3, SNS, SQS and ECR, in each region with the data replicated between them. Argo CD pulls the Kubernetes manifests from GitHub and syncs both clusters, so a change is a pull request; Argo Rollouts releases by canary and rolls back on bad metrics."></a>
+              </div>
+            </div>
+            <h3 class="project__title">Jonoma IT platform</h3>
+            <p>My own multi-account AWS platform, built as a reference lab: an AWS Organization with a bootstrap per account and GitHub OIDC roles (no static keys), a shared foundation (network, ECS, ALB, ECR and the Cloudflare entry), a Terraform module library, reusable pipelines that turn a few lines of an app's config into a running app, and a React template every web app starts from. Every decision is written down as an ADR.</p>
+            <ul class="chips" role="list"><li class="chip">AWS Organizations</li><li class="chip">Terraform</li><li class="chip">GitHub Actions</li><li class="chip">OIDC</li><li class="chip">ECS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare</li></ul>
+            <p class="project__links">
+              <a href="https://github.com/JonomaIT"><svg aria-hidden="true"><use href="#i-github"/></svg>JonomaIT on GitHub</a>
+              <a href="https://github.com/JonomaIT/web-joshuel/tree/main/design/diagrams"><svg aria-hidden="true"><use href="#i-external"/></svg>Diagrams (draw.io)</a>
+            </p>
+          </article>
+          <article class="card project reveal">
+            <img class="project__shot" src="/img/projects/english-640.webp" srcset="/img/projects/english-640.webp 640w, /img/projects/english-1280.webp 1280w, /img/projects/english-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 30rem" width="640" height="400" loading="lazy" alt="Home page of the English study site: review button, cards due and lessons">
+            <h3 class="project__title">English study site</h3>
+            <p>A spaced-repetition study app (FSRS) with flash cards and course lessons, synced between devices through a small Lambda API behind the same CloudFront, with its own sign-in.</p>
+            <ul class="chips" role="list"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Lambda</li><li class="chip">DynamoDB</li><li class="chip">FSRS</li></ul>
+            <p class="project__links">
+              <a href="https://english.joshuel.com.br"><svg aria-hidden="true"><use href="#i-external"/></svg>english.joshuel.com.br</a>
+              <a href="https://github.com/JonomaIT/web-english"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+            </p>
+          </article>
+          <article class="card project reveal">
+            <img class="project__shot" src="/img/projects/client-640.webp" srcset="/img/projects/client-640.webp 640w, /img/projects/client-1280.webp 1280w, /img/projects/client-1920.webp 1920w" sizes="(max-width: 760px) 100vw, 30rem" width="640" height="400" loading="lazy" alt="Home page of the client's dental practice website">
+            <h3 class="project__title">A client's website</h3>
+            <p>The site of a health professional, served by the platform on the client's own domain, with its own certificate and DNS, and every change made through a pull request.</p>
+            <ul class="chips" role="list"><li class="chip">HTML and CSS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare DNS</li></ul>
+            <p class="project__links">
+              <a href="https://draleticiapenin.com.br"><svg aria-hidden="true"><use href="#i-external"/></svg>draleticiapenin.com.br</a>
+              <a href="https://github.com/JonomaIT/web-dra-leticia"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------ about -->
+    <!-- Sem foto por enquanto: com a foto nova, volta o grid .about com um <figure class="about__photo">. -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__copy reveal">
+          <span class="eyebrow">About</span>
+          <h2 class="section__title" id="about-title">About me</h2>
+          <p>I'm based in Fortaleza, in the northeast of Brazil. I started in tech in 2021 writing backend code and moved into infrastructure a year later, and that start still shows in how I work: during an incident, I read the code, not only the dashboards.</p>
+          <p>I learn best by building. Jonoma IT, my own multi-account AWS platform, is the lab where I try ideas end to end, from the AWS Organization to the deploy pipeline. I'm also studying for a teaching degree in computing at UECE.</p>
+        </div>
       </div>
     </section>
 
@@ -207,15 +307,15 @@
         <div class="stack">
           <div class="stack__group reveal">
             <h3>Cloud and IaC</h3>
-            <ul class="chips" role="list"><li class="chip">AWS</li><li class="chip">EKS</li><li class="chip">RDS</li><li class="chip">ElastiCache</li><li class="chip">SQS</li><li class="chip">Lambda</li><li class="chip">IAM and KMS</li><li class="chip">CloudFront</li><li class="chip">Terraform</li><li class="chip">CloudFormation</li></ul>
+            <ul class="chips" role="list"><li class="chip">AWS</li><li class="chip">EKS</li><li class="chip">EC2</li><li class="chip">RDS</li><li class="chip">ElastiCache</li><li class="chip">SQS</li><li class="chip">S3</li><li class="chip">Lambda</li><li class="chip">IAM and KMS</li><li class="chip">CloudFront</li><li class="chip">Route53</li><li class="chip">CloudTrail</li><li class="chip">GuardDuty</li><li class="chip">Terraform</li><li class="chip">CloudFormation</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>Kubernetes and containers</h3>
-            <ul class="chips" role="list"><li class="chip">EKS</li><li class="chip">AKS</li><li class="chip">Kubernetes</li><li class="chip">Rancher</li><li class="chip">Helm</li><li class="chip">Istio</li><li class="chip">RBAC</li><li class="chip">HPA</li><li class="chip">Docker</li></ul>
+            <ul class="chips" role="list"><li class="chip">EKS</li><li class="chip">AKS</li><li class="chip">Kubernetes</li><li class="chip">Rancher</li><li class="chip">Helm</li><li class="chip">Istio</li><li class="chip">RBAC</li><li class="chip">HPA</li><li class="chip">Docker</li><li class="chip">containerd</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>CI/CD and GitOps</h3>
-            <ul class="chips" role="list"><li class="chip">Argo CD</li><li class="chip">Argo Rollouts</li><li class="chip">FluxCD</li><li class="chip">GitHub Actions</li><li class="chip">Azure DevOps</li></ul>
+            <ul class="chips" role="list"><li class="chip">Argo CD</li><li class="chip">Argo Rollouts</li><li class="chip">GitHub Actions</li><li class="chip">Azure DevOps</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>Observability</h3>
@@ -223,7 +323,7 @@
           </div>
           <div class="stack__group reveal">
             <h3>Networking and security</h3>
-            <ul class="chips" role="list"><li class="chip">VPC</li><li class="chip">DNS and TLS</li><li class="chip">WAF</li><li class="chip">Cloudflare Zero Trust</li><li class="chip">Network Policies</li><li class="chip">securityContext</li><li class="chip">Trivy</li></ul>
+            <ul class="chips" role="list"><li class="chip">VPC</li><li class="chip">DNS and TLS</li><li class="chip">WAF</li><li class="chip">ZTNA (Cloudflare Zero Trust)</li><li class="chip">IAM</li><li class="chip">securityContext</li><li class="chip">Trivy</li></ul>
           </div>
           <div class="stack__group reveal">
             <h3>Linux and automation</h3>

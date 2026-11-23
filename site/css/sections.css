@@ -84,12 +84,25 @@
 }
 
 
+/* celular: o menu continua numa linha; o nome sai, o emblema fica */
 @media (max-width: 760px) {
-  .nav__links {
-    display: none;
+  .site-header__bar {
+    gap: var(--space-2);
   }
 
   .brand__name {
+    display: none;
+  }
+
+  .nav__links {
+    gap: 0;
+  }
+
+  .nav__links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    padding-inline: var(--space-2);
     font-size: var(--text-xs);
   }
 }
@@ -101,14 +114,53 @@
 
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
   align-items: center;
   gap: var(--space-12);
 }
 
+/* a foto: um cartão com borda fina e um eco do gradiente embaixo */
+.hero__photo {
+  position: relative;
+  margin: 0;
+}
+
+.hero__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+/* sem retrato: o emblema quadrado, inteiro, no lugar da foto */
+.hero__photo--emblem img {
+  aspect-ratio: 1;
+  object-fit: contain;
+  border: 0;
+  background: var(--emblem-tile);
+  border-radius: 22%;
+}
+
+.hero__photo--emblem::after {
+  display: none;
+}
+
+.hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: auto var(--space-6) calc(-1 * var(--space-2));
+  height: 2px;
+  border-radius: var(--radius-full);
+  background: var(--brand-gradient);
+}
+
 .hero__copy {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--space-5);
   justify-items: start;
 }
 
@@ -117,14 +169,44 @@
   letter-spacing: -0.035em;
 }
 
+.hero__hi {
+  display: block;
+  font: 500 var(--text-lg) / 1.4 var(--font-mono);
+  letter-spacing: 0;
+  color: var(--text-muted);
+}
+
+.hero__smile {
+  color: var(--metric-3); /* âmbar no escuro, ember-600 no claro (contraste) */
+}
+
 .hero__role {
   font: 500 var(--text-sm) / 1.4 var(--font-mono);
   color: var(--text-muted);
 }
 
+.hero__tagline {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+}
+
 .hero__lead {
-  max-width: 36rem;
+  max-width: 38rem;
   font-size: var(--text-lg);
+  color: var(--text-muted);
+}
+
+/* monograma de uma empresa (na linha do tempo) */
+.org__mark {
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-raised);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  line-height: 1;
   color: var(--text-muted);
 }
 
@@ -141,16 +223,6 @@
   margin-left: var(--space-2);
 }
 
-.hero__art {
-  position: relative;
-  display: grid;
-  place-items: center;
-}
-
-.hero__art .emblem {
-  width: min(100%, 24rem);
-}
-
 @media (max-width: 860px) {
   .hero {
     padding-top: var(--space-10);
@@ -161,12 +233,11 @@
     gap: var(--space-8);
   }
 
-  .hero__art {
-    order: -1;
-    justify-items: start;
+  .hero__photo {
+    width: min(100%, 16rem);
   }
 
-  .hero__art .emblem {
+  .hero__photo--emblem {
     width: 6.5rem;
   }
 }
@@ -175,6 +246,8 @@
 .timeline {
   display: grid;
   gap: 0;
+  padding: 0;
+  list-style: none;
   border-left: 1px solid var(--border-strong);
   margin-left: var(--space-2);
 }
@@ -182,8 +255,8 @@
 .job {
   position: relative;
   display: grid;
-  grid-template-columns: 12rem minmax(0, 1fr);
-  gap: var(--space-2) var(--space-8);
+  grid-template-columns: 14rem minmax(0, 1fr);
+  gap: var(--space-4) var(--space-8);
   padding: 0 0 var(--space-10) var(--space-8);
 }
 
@@ -204,9 +277,53 @@
   background: var(--status);
 }
 
+.job__side {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-content: start;
+  gap: var(--space-1) var(--space-3);
+}
+
+.job__side .org__mark,
+.job__side .org__logo {
+  grid-row: span 2;
+}
+
+.org__mark--lg svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* logo oficial da empresa (WebP local, sem metadados) */
+.org__logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.org__mark--lg {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+}
+
+.job__company-name {
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.job__client {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
 .job__when {
-  font: var(--text-xs) / 1.8 var(--font-mono);
+  font: var(--text-xs) / 1.6 var(--font-mono);
   color: var(--text-subtle);
+  font-variant-numeric: tabular-nums;
 }
 
 .job__role {
@@ -215,9 +332,29 @@
   line-height: 1.35;
 }
 
-.job__company {
-  color: var(--text-muted);
-  font-weight: 400;
+/* fotos de uma experiência: uma faixa que rola de lado, sem rotação automática */
+.gallery {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(11rem, 42%);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-bottom: var(--space-2);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  border-radius: var(--radius-md);
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .job__points {
@@ -236,6 +373,218 @@
   .job {
     grid-template-columns: 1fr;
     padding-left: var(--space-6);
+  }
+}
+
+/* ------------------------------------------------------------------ projetos */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+@media (max-width: 760px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.project--featured {
+  grid-column: 1 / -1;
+  border-color: var(--border-strong);
+}
+
+/* captura de tela de um projeto: 16:10, com a borda dos cards */
+.project__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+
+/* diagramas da plataforma (draw.io, fundo branco): abas com o diagrama num quadro claro nos dois
+   temas; no celular o diagrama rola de lado em vez de encolher até ficar ilegível. Sem JavaScript,
+   todos aparecem em sequência e as abas ficam escondidas. */
+.arch-tabs {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.arch-tabs__list {
+  display: none;
+}
+
+.js .arch-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* celular: as abas quebram linha, todas visíveis */
+@media (max-width: 760px) {
+  .arch-tabs__tab {
+    flex: none;
+    padding: 0 var(--space-3);
+  }
+}
+
+.arch-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-muted);
+  font: 500 var(--text-sm) / 1 var(--font-sans);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+
+.arch-tabs__tab:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.arch-tabs__tab[aria-selected="true"] {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--surface-raised);
+}
+
+.arch-tabs__badge {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-strong);
+  font: var(--text-xs) / 1.4 var(--font-mono);
+  color: var(--text-subtle);
+}
+
+.arch-wrap {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: #ffffff;
+}
+
+.arch-wrap[hidden] {
+  display: none;
+}
+
+.arch-wrap img {
+  display: block;
+  width: 100%;
+  min-width: 36rem;
+  height: auto;
+}
+
+.arch-open {
+  display: block;
+}
+
+/* celular: perto do tamanho original, para o texto do diagrama continuar legível; o quadro rola de
+   lado e o toque abre o SVG inteiro, com zoom */
+@media (max-width: 760px) {
+  .arch-wrap img {
+    min-width: 60rem;
+  }
+}
+
+.project__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.project p {
+  color: var(--text-muted);
+}
+
+.project--featured p {
+  max-width: 48rem;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.project__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  font: 500 var(--text-sm) / 1 var(--font-sans);
+  color: var(--link);
+  text-decoration: none;
+}
+
+.project__links a:hover {
+  text-decoration: underline;
+}
+
+.project__links svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ------------------------------------------------------------------ sobre */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 18rem);
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.about__copy {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 38rem;
+}
+
+.about__copy p {
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+}
+
+.about__photo {
+  margin: 0;
+}
+
+.about__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+@media (max-width: 760px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .about__photo {
+    width: min(100%, 16rem);
   }
 }
 
