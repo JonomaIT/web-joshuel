@@ -379,8 +379,14 @@
 /* ------------------------------------------------------------------ projetos */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-4);
+}
+
+@media (max-width: 760px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
 }
 
 .project {
@@ -392,6 +398,94 @@
 .project--featured {
   grid-column: 1 / -1;
   border-color: var(--border-strong);
+}
+
+/* captura de tela de um projeto: 16:10, com a borda dos cards */
+.project__shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+}
+
+/* desenho de arquitetura: SVG com as cores dos tokens (claro e escuro); no celular rola de lado
+   em vez de encolher até ficar ilegível */
+.arch-wrap {
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  padding: var(--space-2);
+}
+
+.arch {
+  display: block;
+  width: 100%;
+  min-width: 40rem;
+  height: auto;
+}
+
+.arch__box {
+  fill: var(--surface-raised);
+  stroke: var(--border-strong);
+}
+
+.arch__box--accent {
+  stroke: var(--accent);
+}
+
+.arch__group {
+  fill: none;
+  stroke: var(--border-strong);
+  stroke-dasharray: 5 5;
+}
+
+.arch__group--inner {
+  fill: var(--surface);
+  stroke-dasharray: none;
+}
+
+.arch__chip {
+  fill: var(--surface);
+  stroke: var(--border-strong);
+}
+
+.arch__line {
+  fill: none;
+  stroke: var(--text-subtle);
+  stroke-width: 1.5;
+}
+
+.arch__head {
+  fill: var(--text-subtle);
+}
+
+.arch__label {
+  fill: var(--text);
+  font: 500 12px var(--font-sans);
+}
+
+.arch__sub {
+  fill: var(--text-muted);
+  font: 11px var(--font-mono);
+}
+
+.arch__lane {
+  fill: var(--text-subtle);
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.arch__note {
+  fill: var(--link);
+  font: 11px var(--font-mono);
 }
 
 .project__title {

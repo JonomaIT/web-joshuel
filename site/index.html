@@ -226,16 +226,65 @@
         </div>
         <div class="projects">
           <article class="card project project--featured reveal">
+            <div class="arch-wrap" role="region" aria-label="Architecture diagram of the Jonoma IT platform (scrolls sideways on small screens)" tabindex="0">
+              <svg class="arch" viewBox="0 0 760 372" role="img" aria-labelledby="arch-title arch-desc">
+                <title id="arch-title">Jonoma IT platform architecture</title>
+                <desc id="arch-desc">An app repository on GitHub calls the reusable pipelines, which use the versioned Terraform modules and sign in to AWS through OIDC with no static keys. Inside the AWS Organization (management, log-archive, audit, shared-services with ECR, staging and production), production serves the sites through Cloudflare and CloudFront from S3, a Lambda API with DynamoDB, and services on ECS behind an ALB.</desc>
+                <defs>
+                  <marker id="arch-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 8 4 0 8z" class="arch__head"/></marker>
+                </defs>
+                <text class="arch__lane" x="40" y="20">GitHub</text>
+                <rect class="arch__box" x="40" y="30" width="190" height="52" rx="8"/>
+                <text class="arch__label" x="135" y="53" text-anchor="middle">App repo</text>
+                <text class="arch__sub" x="135" y="70" text-anchor="middle">deploy/ files, code</text>
+                <rect class="arch__box arch__box--accent" x="285" y="30" width="190" height="52" rx="8"/>
+                <text class="arch__label" x="380" y="53" text-anchor="middle">pipelines</text>
+                <text class="arch__sub" x="380" y="70" text-anchor="middle">reusable workflows, runners</text>
+                <rect class="arch__box" x="530" y="30" width="190" height="52" rx="8"/>
+                <text class="arch__label" x="625" y="53" text-anchor="middle">terraform-modules</text>
+                <text class="arch__sub" x="625" y="70" text-anchor="middle">versioned by tag</text>
+                <path class="arch__line" d="M230 56H283" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M475 56H528" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M380 82V170" marker-end="url(#arch-arrow)"/>
+                <text class="arch__note" x="392" y="122">OIDC role per app</text>
+                <text class="arch__note" x="392" y="138">no static keys</text>
+
+                <rect class="arch__group" x="20" y="150" width="720" height="210" rx="12"/>
+                <text class="arch__lane" x="36" y="172">AWS Organization</text>
+                <g class="arch__accounts">
+                  <rect class="arch__chip" x="36" y="184" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="200" text-anchor="middle">management</text>
+                  <rect class="arch__chip" x="36" y="214" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="230" text-anchor="middle">log-archive · audit</text>
+                  <rect class="arch__chip" x="36" y="244" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="260" text-anchor="middle">shared-services · ECR</text>
+                  <rect class="arch__chip" x="36" y="274" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="290" text-anchor="middle">staging</text>
+                </g>
+                <rect class="arch__group arch__group--inner" x="220" y="172" width="504" height="174" rx="10"/>
+                <text class="arch__lane" x="234" y="192">production</text>
+                <rect class="arch__box" x="236" y="232" width="100" height="36" rx="8"/><text class="arch__label" x="286" y="255" text-anchor="middle">Cloudflare</text>
+                <rect class="arch__box" x="362" y="204" width="100" height="36" rx="8"/><text class="arch__label" x="412" y="227" text-anchor="middle">CloudFront</text>
+                <rect class="arch__box" x="362" y="290" width="100" height="36" rx="8"/><text class="arch__label" x="412" y="313" text-anchor="middle">ALB</text>
+                <rect class="arch__box" x="488" y="186" width="104" height="30" rx="8"/><text class="arch__label" x="540" y="206" text-anchor="middle">S3 · sites</text>
+                <rect class="arch__box" x="488" y="228" width="104" height="30" rx="8"/><text class="arch__label" x="540" y="248" text-anchor="middle">Lambda · API</text>
+                <rect class="arch__box" x="612" y="228" width="98" height="30" rx="8"/><text class="arch__label" x="661" y="248" text-anchor="middle">DynamoDB</text>
+                <rect class="arch__box" x="488" y="293" width="104" height="30" rx="8"/><text class="arch__label" x="540" y="313" text-anchor="middle">ECS services</text>
+                <path class="arch__line" d="M336 244L360 226" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M336 256L360 302" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M462 216L486 204" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M462 228L486 240" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M592 243H610" marker-end="url(#arch-arrow)"/>
+                <path class="arch__line" d="M462 308H486" marker-end="url(#arch-arrow)"/>
+              </svg>
+            </div>
             <h3 class="project__title">Jonoma IT platform</h3>
-            <p>My own multi-account AWS platform, built as a reference lab: an AWS Organization with a bootstrap per account and GitHub OIDC roles (no static keys), a shared foundation (network, ECS, ALB, ECR and the Cloudflare entry), a Terraform module library, and reusable pipelines that turn a few lines of an app's config into a running app. Every decision is written down as an ADR.</p>
+            <p>My own multi-account AWS platform, built as a reference lab: an AWS Organization with a bootstrap per account and GitHub OIDC roles (no static keys), a shared foundation (network, ECS, ALB, ECR and the Cloudflare entry), a Terraform module library, reusable pipelines that turn a few lines of an app's config into a running app, and a React template every web app starts from. Every decision is written down as an ADR.</p>
             <ul class="chips" role="list"><li class="chip">AWS Organizations</li><li class="chip">Terraform</li><li class="chip">GitHub Actions</li><li class="chip">OIDC</li><li class="chip">ECS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare</li></ul>
             <p class="project__links">
               <a href="https://github.com/JonomaIT"><svg aria-hidden="true"><use href="#i-github"/></svg>JonomaIT on GitHub</a>
             </p>
           </article>
           <article class="card project reveal">
+            <img class="project__shot" src="/img/projects/english-400.webp" srcset="/img/projects/english-400.webp 400w, /img/projects/english-800.webp 800w" sizes="(max-width: 760px) 100vw, 30rem" width="400" height="250" loading="lazy" alt="Home page of the English study site: review button, cards due and lessons">
             <h3 class="project__title">English study site</h3>
-            <p>Spaced-repetition flash cards (FSRS) and course lessons for my own English practice, synced between my phone and my computer through a small Lambda API behind the same CloudFront, with its own sign-in.</p>
+            <p>A spaced-repetition study app (FSRS) with flash cards and course lessons, synced between devices through a small Lambda API behind the same CloudFront, with its own sign-in.</p>
             <ul class="chips" role="list"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Lambda</li><li class="chip">DynamoDB</li><li class="chip">FSRS</li></ul>
             <p class="project__links">
               <a href="https://english.joshuel.com.br"><svg aria-hidden="true"><use href="#i-external"/></svg>english.joshuel.com.br</a>
@@ -243,20 +292,13 @@
             </p>
           </article>
           <article class="card project reveal">
+            <img class="project__shot" src="/img/projects/client-400.webp" srcset="/img/projects/client-400.webp 400w, /img/projects/client-800.webp 800w" sizes="(max-width: 760px) 100vw, 30rem" width="400" height="250" loading="lazy" alt="Home page of the client's dental practice website">
             <h3 class="project__title">A client's website</h3>
             <p>The site of a health professional, served by the platform on the client's own domain, with its own certificate and DNS, and every change made through a pull request.</p>
             <ul class="chips" role="list"><li class="chip">HTML and CSS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare DNS</li></ul>
             <p class="project__links">
               <a href="https://draleticiapenin.com.br"><svg aria-hidden="true"><use href="#i-external"/></svg>draleticiapenin.com.br</a>
               <a href="https://github.com/JonomaIT/web-dra-leticia"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
-            </p>
-          </article>
-          <article class="card project reveal">
-            <h3 class="project__title">Web app template</h3>
-            <p>The template every web app of the platform starts from: React, TypeScript, Vite and Cloudscape.</p>
-            <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Cloudscape</li></ul>
-            <p class="project__links">
-              <a href="https://github.com/JonomaIT/template-web-react"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
             </p>
           </article>
         </div>
