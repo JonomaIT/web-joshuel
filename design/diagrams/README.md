@@ -9,7 +9,7 @@ architecture icons. The `.drawio` files are the source: open them in draw.io, ed
 | `github.drawio` | The organization, OIDC, and the reusable workflows in three lanes: infra, sites, services |
 | `network.drawio` | The production VPC in us-east-1: Cloudflare in front, two AZs, public and private subnets with their CIDRs, one NAT, gateway endpoints |
 | `ecs.drawio` | An example app (API and worker) active in two regions: the ECS clusters, the replicated data and the standby copies for failover |
-| `eks-planned.drawio` | The planned EKS design (not built yet) |
+| `eks-planned.drawio` | Planned, not built yet: the ECS example app on EKS in two regions, EC2 nodes by Karpenter, Argo CD (GitOps) and Argo Rollouts (canary) |
 
 Keep them simple: one idea per diagram, few boxes, short labels, left to right.
 
@@ -35,3 +35,7 @@ python3 -I clean_svg.py /tmp/drawio-svg ../../site/img/arch
 the file), the external "Text is not SVG" link and the dark-mode colours (the diagrams always sit
 on white), and refuses any script or external reference. Update the `width`/`height` of the
 `<img>` in `site/index.html` if a diagram changes size (the script prints them).
+
+## Logos
+
+Cloudflare and Argo come from [simple-icons](https://github.com/simple-icons/simple-icons) 13.0.0 (CC0), Karpenter from `website/assets/icons/logo.svg` of `aws/karpenter-provider-aws` v1.0.0. They are embedded in the `.drawio` files as SVG, so the site makes no request for them.
