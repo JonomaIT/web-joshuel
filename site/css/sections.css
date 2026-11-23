@@ -272,6 +272,31 @@
   grid-row: span 2;
 }
 
+.org__mark--lg svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* vários lugares curtos numa experiência só: nome à esquerda, datas à direita */
+.job__places {
+  display: grid;
+  gap: var(--space-1);
+  margin-top: var(--space-3);
+  padding: 0;
+  list-style: none;
+  max-width: 30rem;
+}
+
+.job__places li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0 var(--space-4);
+  padding-block: var(--space-1);
+  border-bottom: 1px dashed var(--border);
+  font-size: var(--text-sm);
+}
+
 /* logo oficial da empresa (WebP local, sem metadados) */
 .org__logo {
   width: 2.5rem;

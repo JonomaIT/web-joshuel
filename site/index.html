@@ -64,6 +64,7 @@
       <symbol id="i-download" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 19h14"/></g></symbol>
       <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
       <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></g></symbol>
       <symbol id="i-external" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></g></symbol>
     </defs>
   </svg>
@@ -199,16 +200,22 @@
           </li>
           <li class="job reveal">
             <div class="job__side">
-              <span class="org__mark org__mark--lg" aria-hidden="true">&lt;/&gt;</span>
+              <span class="org__mark org__mark--lg" aria-hidden="true"><svg><use href="#i-code"/></svg></span>
               <p class="job__company-name">Where I started</p>
               <p class="job__when">Nov 2021 — Oct 2022</p>
             </div>
             <div class="job__body">
-              <h3 class="job__role">Backend Developer → Data Scientist</h3>
+              <h3 class="job__role">Backend Developer</h3>
+              <ul class="job__places" role="list">
+                <li><span>Dell Lead</span><span class="job__when">Nov 2021 — Feb 2022</span></li>
+                <li><span>Polo de Inovação IFCE</span><span class="job__when">Jan — Apr 2022</span></li>
+                <li><span>LAPISCO/IFCE</span><span class="job__when">Mar — Jun 2022</span></li>
+                <li><span>Engineering Brasil</span><span class="job__when">Apr — Oct 2022</span></li>
+              </ul>
               <ul class="job__points">
-                <li>Python (FastAPI) and TypeScript (NestJS, GraphQL) APIs with PostgreSQL, auth and unit, integration and E2E tests, shipped in Docker, at Dell Lead, LAPISCO/IFCE and Polo de Inovação IFCE.</li>
-                <li>A computer vision backend in Python for people, object and motion detection at Engineering Brasil.</li>
-                <li>Those years still shape how I work as an SRE: during an incident I read the code, not only the dashboards.</li>
+                <li>APIs in Python (FastAPI) and TypeScript (NestJS, GraphQL) on PostgreSQL, with authentication and unit, integration and E2E tests, shipped in Docker.</li>
+                <li>A Python backend for computer vision: people, object and motion detection.</li>
+                <li>It still shapes how I work: during an incident I read the code, not only the dashboards.</li>
               </ul>
             </div>
           </li>
