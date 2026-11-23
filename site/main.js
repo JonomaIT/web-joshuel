@@ -18,6 +18,30 @@ document.querySelector('.theme-toggle')?.addEventListener('click', () => {
   }
 })
 
+/* ---- abas dos diagramas: sem JavaScript todos aparecem; com ele, um por vez (setas, Home, End) ---- */
+document.querySelectorAll('[data-tabs]').forEach((box) => {
+  const tabs = [...box.querySelectorAll('[role="tab"]')]
+  const select = (tab, focus) => {
+    for (const t of tabs) {
+      const on = t === tab
+      t.setAttribute('aria-selected', String(on))
+      t.tabIndex = on ? 0 : -1
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on
+    }
+    if (focus) tab.focus()
+  }
+  select(tabs.find((t) => t.getAttribute('aria-selected') === 'true') || tabs[0], false)
+  box.querySelector('[role="tablist"]').addEventListener('keydown', (e) => {
+    const i = tabs.indexOf(document.activeElement)
+    if (i < 0) return
+    const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key]
+    if (next === undefined) return
+    e.preventDefault()
+    select(tabs[(next + tabs.length) % tabs.length], true)
+  })
+  tabs.forEach((t) => t.addEventListener('click', () => select(t, false)))
+})
+
 /* ---- aparece ao rolar; com "reduzir animações" o CSS já mostra tudo ---- */
 const items = document.querySelectorAll('.reveal')
 if ('IntersectionObserver' in window) {

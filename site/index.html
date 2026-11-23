@@ -226,59 +226,38 @@
         </div>
         <div class="projects">
           <article class="card project project--featured reveal">
-            <div class="arch-wrap" role="region" aria-label="Architecture diagram of the Jonoma IT platform (scrolls sideways on small screens)" tabindex="0">
-              <svg class="arch" viewBox="0 0 760 372" role="img" aria-labelledby="arch-title arch-desc">
-                <title id="arch-title">Jonoma IT platform architecture</title>
-                <desc id="arch-desc">An app repository on GitHub calls the reusable pipelines, which use the versioned Terraform modules and sign in to AWS through OIDC with no static keys. Inside the AWS Organization (management, log-archive, audit, shared-services with ECR, staging and production), production serves the sites through Cloudflare and CloudFront from S3, a Lambda API with DynamoDB, and services on ECS behind an ALB.</desc>
-                <defs>
-                  <marker id="arch-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 8 4 0 8z" class="arch__head"/></marker>
-                </defs>
-                <text class="arch__lane" x="40" y="20">GitHub</text>
-                <rect class="arch__box" x="40" y="30" width="190" height="52" rx="8"/>
-                <text class="arch__label" x="135" y="53" text-anchor="middle">App repo</text>
-                <text class="arch__sub" x="135" y="70" text-anchor="middle">deploy/ files, code</text>
-                <rect class="arch__box arch__box--accent" x="285" y="30" width="190" height="52" rx="8"/>
-                <text class="arch__label" x="380" y="53" text-anchor="middle">pipelines</text>
-                <text class="arch__sub" x="380" y="70" text-anchor="middle">reusable workflows, runners</text>
-                <rect class="arch__box" x="530" y="30" width="190" height="52" rx="8"/>
-                <text class="arch__label" x="625" y="53" text-anchor="middle">terraform-modules</text>
-                <text class="arch__sub" x="625" y="70" text-anchor="middle">versioned by tag</text>
-                <path class="arch__line" d="M230 56H283" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M475 56H528" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M380 82V170" marker-end="url(#arch-arrow)"/>
-                <text class="arch__note" x="392" y="122">OIDC role per app</text>
-                <text class="arch__note" x="392" y="138">no static keys</text>
-
-                <rect class="arch__group" x="20" y="150" width="720" height="210" rx="12"/>
-                <text class="arch__lane" x="36" y="172">AWS Organization</text>
-                <g class="arch__accounts">
-                  <rect class="arch__chip" x="36" y="184" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="200" text-anchor="middle">management</text>
-                  <rect class="arch__chip" x="36" y="214" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="230" text-anchor="middle">log-archive · audit</text>
-                  <rect class="arch__chip" x="36" y="244" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="260" text-anchor="middle">shared-services · ECR</text>
-                  <rect class="arch__chip" x="36" y="274" width="160" height="24" rx="12"/><text class="arch__sub" x="116" y="290" text-anchor="middle">staging</text>
-                </g>
-                <rect class="arch__group arch__group--inner" x="220" y="172" width="504" height="174" rx="10"/>
-                <text class="arch__lane" x="234" y="192">production</text>
-                <rect class="arch__box" x="236" y="232" width="100" height="36" rx="8"/><text class="arch__label" x="286" y="255" text-anchor="middle">Cloudflare</text>
-                <rect class="arch__box" x="362" y="204" width="100" height="36" rx="8"/><text class="arch__label" x="412" y="227" text-anchor="middle">CloudFront</text>
-                <rect class="arch__box" x="362" y="290" width="100" height="36" rx="8"/><text class="arch__label" x="412" y="313" text-anchor="middle">ALB</text>
-                <rect class="arch__box" x="488" y="186" width="104" height="30" rx="8"/><text class="arch__label" x="540" y="206" text-anchor="middle">S3 · sites</text>
-                <rect class="arch__box" x="488" y="228" width="104" height="30" rx="8"/><text class="arch__label" x="540" y="248" text-anchor="middle">Lambda · API</text>
-                <rect class="arch__box" x="612" y="228" width="98" height="30" rx="8"/><text class="arch__label" x="661" y="248" text-anchor="middle">DynamoDB</text>
-                <rect class="arch__box" x="488" y="293" width="104" height="30" rx="8"/><text class="arch__label" x="540" y="313" text-anchor="middle">ECS services</text>
-                <path class="arch__line" d="M336 244L360 226" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M336 256L360 302" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M462 216L486 204" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M462 228L486 240" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M592 243H610" marker-end="url(#arch-arrow)"/>
-                <path class="arch__line" d="M462 308H486" marker-end="url(#arch-arrow)"/>
-              </svg>
+            <!-- Diagramas em draw.io (design/diagrams/*.drawio), exportados em WebP 1x/2x. Sem JavaScript,
+                 os cinco aparecem em sequência; com JavaScript, viram abas. -->
+            <div class="arch-tabs" data-tabs>
+              <div class="arch-tabs__list" role="tablist" aria-label="Platform diagrams">
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-accounts" aria-controls="panel-accounts" aria-selected="true">AWS accounts</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-github" aria-controls="panel-github" aria-selected="false" tabindex="-1">GitHub</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-network" aria-controls="panel-network" aria-selected="false" tabindex="-1">Network</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-ecs" aria-controls="panel-ecs" aria-selected="false" tabindex="-1">ECS</button>
+                <button class="arch-tabs__tab" type="button" role="tab" id="tab-eks" aria-controls="panel-eks" aria-selected="false" tabindex="-1">EKS <span class="arch-tabs__badge">planned</span></button>
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-accounts" aria-labelledby="tab-accounts" tabindex="0">
+                <img src="/img/arch/aws-accounts-1x.webp" srcset="/img/arch/aws-accounts-1x.webp 1035w, /img/arch/aws-accounts-2x.webp 2069w" sizes="(max-width: 760px) 44rem, 66rem" width="1035" height="635" alt="AWS Organization under Control Tower: management (Organizations, Control Tower, IAM Identity Center); a Security OU with log-archive (organization trail, log buckets) and audit; platform accounts shared-services (ECR, image push role), staging (VPC 10.10.0.0/16, ECS) and production (two VPCs, ECS, CloudFront) in us-east-1 and sa-east-1. Every account is bootstrapped with the GitHub OIDC provider, a state bucket and per-repo apply and read-only plan roles.">
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-github" aria-labelledby="tab-github" tabindex="0">
+                <img src="/img/arch/github-1x.webp" srcset="/img/arch/github-1x.webp 1058w, /img/arch/github-2x.webp 2115w" sizes="(max-width: 760px) 44rem, 66rem" width="1058" height="595" loading="lazy" alt="GitHub organization JonomaIT: organization, infrastructure, pipelines, terraform-modules and app repos; infrastructure and apps use pipelines by tag, which use the modules by tag. Pull requests plan with a read-only role and post the plan; merges to main wait for one approval per account and apply that plan; a nightly drift check opens an issue; app builds push images to ECR; app deploys check the contract, then data, app per region and smoke tests. Every AWS access is through OIDC, with no static keys.">
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-network" aria-labelledby="tab-network" tabindex="0">
+                <img src="/img/arch/network-1x.webp" srcset="/img/arch/network-1x.webp 1075w, /img/arch/network-2x.webp 2149w" sizes="(max-width: 760px) 44rem, 66rem" width="1075" height="695" loading="lazy" alt="Production network: Cloudflare Load Balancing sends traffic, active-active, to two regions. Each region has a VPC (10.20.0.0/16 in us-east-1, 10.120.0.0/16 in sa-east-1) with two availability zones, a public /24 and a private /20 subnet per zone, an internet gateway, a shared ALB that accepts HTTPS only from Cloudflare, one NAT per VPC, ECS tasks in the private subnets and gateway endpoints for S3 and DynamoDB. The two VPCs are peered.">
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-ecs" aria-labelledby="tab-ecs" tabindex="0">
+                <img src="/img/arch/ecs-1x.webp" srcset="/img/arch/ecs-1x.webp 1095w, /img/arch/ecs-2x.webp 2189w" sizes="(max-width: 760px) 44rem, 66rem" width="1095" height="535" loading="lazy" alt="ECS: Cloudflare sends HTTPS to the shared ALB, which routes to svc-sales-api in the production ECS cluster (Fargate and Fargate Spot, Service Connect). The API writes sales to a DynamoDB global table and publishes to the sales-created topic, which fans out to a processing queue per region; svc-sales-worker consumes it only while its region is ACTIVE (region-state parameter) and stores receipts in S3. Images come from ECR in shared-services.">
+              </div>
+              <div class="arch-wrap" role="tabpanel" id="panel-eks" aria-labelledby="tab-eks" tabindex="0">
+                <img src="/img/arch/eks-planned-1x.webp" srcset="/img/arch/eks-planned-1x.webp 1075w, /img/arch/eks-planned-2x.webp 2149w" sizes="(max-width: 760px) 44rem, 66rem" width="1075" height="565" loading="lazy" alt="Planned, not built yet: an EKS cluster in the production VPC's private subnets with Argo CD syncing manifests and Helm charts from GitHub, Karpenter for right-sized and Spot nodes, the AWS Load Balancer Controller creating the ALB, EKS Pod Identity for per-app IAM, External Secrets reading Secrets Manager, and Prometheus, Grafana, Loki, Tempo and OpenTelemetry for observability.">
+              </div>
             </div>
             <h3 class="project__title">Jonoma IT platform</h3>
             <p>My own multi-account AWS platform, built as a reference lab: an AWS Organization with a bootstrap per account and GitHub OIDC roles (no static keys), a shared foundation (network, ECS, ALB, ECR and the Cloudflare entry), a Terraform module library, reusable pipelines that turn a few lines of an app's config into a running app, and a React template every web app starts from. Every decision is written down as an ADR.</p>
             <ul class="chips" role="list"><li class="chip">AWS Organizations</li><li class="chip">Terraform</li><li class="chip">GitHub Actions</li><li class="chip">OIDC</li><li class="chip">ECS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare</li></ul>
             <p class="project__links">
               <a href="https://github.com/JonomaIT"><svg aria-hidden="true"><use href="#i-github"/></svg>JonomaIT on GitHub</a>
+              <a href="https://github.com/JonomaIT/web-joshuel/tree/main/design/diagrams"><svg aria-hidden="true"><use href="#i-external"/></svg>Diagrams (draw.io)</a>
             </p>
           </article>
           <article class="card project reveal">

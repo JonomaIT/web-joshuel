@@ -413,79 +413,91 @@
   background: var(--surface-raised);
 }
 
-/* desenho de arquitetura: SVG com as cores dos tokens (claro e escuro); no celular rola de lado
-   em vez de encolher até ficar ilegível */
+/* diagramas da plataforma (draw.io, fundo branco): abas com o diagrama num quadro claro nos dois
+   temas; no celular o diagrama rola de lado em vez de encolher até ficar ilegível. Sem JavaScript,
+   todos aparecem em sequência e as abas ficam escondidas. */
+.arch-tabs {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.arch-tabs__list {
+  display: none;
+}
+
+.js .arch-tabs__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+
+/* celular: as abas numa linha só, rolando de lado */
+@media (max-width: 760px) {
+  .js .arch-tabs__list {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding-bottom: var(--space-1);
+  }
+
+  .arch-tabs__tab {
+    flex: none;
+    padding: 0 var(--space-3);
+  }
+}
+
+.arch-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-muted);
+  font: 500 var(--text-sm) / 1 var(--font-sans);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+
+.arch-tabs__tab:hover {
+  color: var(--text);
+  background: var(--surface-raised);
+}
+
+.arch-tabs__tab[aria-selected="true"] {
+  color: var(--text);
+  border-color: var(--accent);
+  background: var(--surface-raised);
+}
+
+.arch-tabs__badge {
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-strong);
+  font: var(--text-xs) / 1.4 var(--font-mono);
+  color: var(--text-subtle);
+}
+
 .arch-wrap {
   overflow-x: auto;
   overscroll-behavior-x: contain;
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
-  background: var(--bg);
-  padding: var(--space-2);
+  background: #ffffff;
 }
 
-.arch {
+.arch-wrap[hidden] {
+  display: none;
+}
+
+.arch-wrap img {
   display: block;
   width: 100%;
-  min-width: 40rem;
+  min-width: 44rem;
   height: auto;
-}
-
-.arch__box {
-  fill: var(--surface-raised);
-  stroke: var(--border-strong);
-}
-
-.arch__box--accent {
-  stroke: var(--accent);
-}
-
-.arch__group {
-  fill: none;
-  stroke: var(--border-strong);
-  stroke-dasharray: 5 5;
-}
-
-.arch__group--inner {
-  fill: var(--surface);
-  stroke-dasharray: none;
-}
-
-.arch__chip {
-  fill: var(--surface);
-  stroke: var(--border-strong);
-}
-
-.arch__line {
-  fill: none;
-  stroke: var(--text-subtle);
-  stroke-width: 1.5;
-}
-
-.arch__head {
-  fill: var(--text-subtle);
-}
-
-.arch__label {
-  fill: var(--text);
-  font: 500 12px var(--font-sans);
-}
-
-.arch__sub {
-  fill: var(--text-muted);
-  font: 11px var(--font-mono);
-}
-
-.arch__lane {
-  fill: var(--text-subtle);
-  font: 500 11px var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.arch__note {
-  fill: var(--link);
-  font: 11px var(--font-mono);
 }
 
 .project__title {
