@@ -9,7 +9,7 @@ architecture icons. The `.drawio` files are the source: open them in draw.io, ed
 | `github.drawio` | The organization, OIDC, and the reusable workflows in three lanes: infra, sites, services |
 | `network.drawio` | The production VPC in us-east-1: Cloudflare in front, two AZs, public and private subnets with their CIDRs, one NAT, gateway endpoints |
 | `ecs.drawio` | An example app (API and worker) active in two regions: the ECS clusters, the replicated data and the standby copies for failover |
-| `eks-planned.drawio` | Planned, not built yet: the ECS example app on EKS in two regions, EC2 nodes by Karpenter, Argo CD (GitOps) and Argo Rollouts (canary) |
+| `eks-planned.drawio` | Planned, not built yet: the platform on EKS in two regions, at the infrastructure level: VPC, load balancer, cluster, Karpenter nodes, Argo CD and Argo Rollouts |
 
 Keep them simple: one idea per diagram, few boxes, short labels, left to right.
 
