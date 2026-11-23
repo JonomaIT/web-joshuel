@@ -216,6 +216,70 @@
       </div>
     </section>
 
+    <!-- ------------------------------------------------------------ projects -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Projects</span>
+          <h2 class="section__title" id="projects-title">What I build on my own</h2>
+          <p class="section__lead">All open source on GitHub, all running on the same platform.</p>
+        </div>
+        <div class="projects">
+          <article class="card project project--featured reveal">
+            <h3 class="project__title">Jonoma IT platform</h3>
+            <p>My own multi-account AWS platform, built as a reference lab: an AWS Organization with a bootstrap per account and GitHub OIDC roles (no static keys), a shared foundation (network, ECS, ALB, ECR and the Cloudflare entry), a Terraform module library, and reusable pipelines that turn a few lines of an app's config into a running app. Every decision is written down as an ADR.</p>
+            <ul class="chips" role="list"><li class="chip">AWS Organizations</li><li class="chip">Terraform</li><li class="chip">GitHub Actions</li><li class="chip">OIDC</li><li class="chip">ECS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare</li></ul>
+            <p class="project__links">
+              <a href="https://github.com/JonomaIT"><svg aria-hidden="true"><use href="#i-github"/></svg>JonomaIT on GitHub</a>
+            </p>
+          </article>
+          <article class="card project reveal">
+            <h3 class="project__title">English study site</h3>
+            <p>Spaced-repetition flash cards (FSRS) and course lessons for my own English practice, synced between my phone and my computer through a small Lambda API behind the same CloudFront, with its own sign-in.</p>
+            <ul class="chips" role="list"><li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">Lambda</li><li class="chip">DynamoDB</li><li class="chip">FSRS</li></ul>
+            <p class="project__links">
+              <a href="https://english.joshuel.com.br"><svg aria-hidden="true"><use href="#i-external"/></svg>english.joshuel.com.br</a>
+              <a href="https://github.com/JonomaIT/web-english"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+            </p>
+          </article>
+          <article class="card project reveal">
+            <h3 class="project__title">A client's website</h3>
+            <p>The site of a health professional, served by the platform on the client's own domain, with its own certificate and DNS, and every change made through a pull request.</p>
+            <ul class="chips" role="list"><li class="chip">HTML and CSS</li><li class="chip">CloudFront</li><li class="chip">Cloudflare DNS</li></ul>
+            <p class="project__links">
+              <a href="https://draleticiapenin.com.br"><svg aria-hidden="true"><use href="#i-external"/></svg>draleticiapenin.com.br</a>
+              <a href="https://github.com/JonomaIT/web-dra-leticia"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+            </p>
+          </article>
+          <article class="card project reveal">
+            <h3 class="project__title">Web app template</h3>
+            <p>The template every web app of the platform starts from: React, TypeScript, Vite and Cloudscape.</p>
+            <ul class="chips" role="list"><li class="chip">React</li><li class="chip">Vite</li><li class="chip">Cloudscape</li></ul>
+            <p class="project__links">
+              <a href="https://github.com/JonomaIT/template-web-react"><svg aria-hidden="true"><use href="#i-github"/></svg>Code</a>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------------ about -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about">
+        <div class="about__copy reveal">
+          <span class="eyebrow">About</span>
+          <h2 class="section__title" id="about-title">About me</h2>
+          <p>I live in Fortaleza, in the northeast of Brazil. I started in tech in 2021 as a backend developer and moved into infrastructure a year later, and I have been keeping production running ever since.</p>
+          <p>Outside work I build Jonoma IT, my own AWS platform, and I'm studying for a teaching degree in computing at UECE. I also practice my English with a study site I built for it.</p>
+          <!-- TODO(sobre): fatos pessoais do usuário (o que gosta de fazer etc.), até ~90 palavras no total. -->
+        </div>
+        <!-- TODO(fotos): 1 ou 2 fotos pessoais (WebP sem EXIF). -->
+        <figure class="about__photo reveal">
+          <img src="/img/photos/placeholder.svg" width="400" height="500" loading="lazy" alt="Joshuel outside work (photo coming soon)">
+        </figure>
+      </div>
+    </section>
+
     <!-- ------------------------------------------------------------ stack -->
     <section class="section" id="stack" aria-labelledby="stack-title">
       <div class="container">

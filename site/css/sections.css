@@ -344,6 +344,107 @@
   }
 }
 
+/* ------------------------------------------------------------------ projetos */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-4);
+}
+
+.project {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.project--featured {
+  grid-column: 1 / -1;
+  border-color: var(--border-strong);
+}
+
+.project__title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.project p {
+  color: var(--text-muted);
+}
+
+.project--featured p {
+  max-width: 48rem;
+}
+
+.project__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.project__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 2.75rem;
+  font: 500 var(--text-sm) / 1 var(--font-sans);
+  color: var(--link);
+  text-decoration: none;
+}
+
+.project__links a:hover {
+  text-decoration: underline;
+}
+
+.project__links svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ------------------------------------------------------------------ sobre */
+.about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 18rem);
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.about__copy {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 38rem;
+}
+
+.about__copy p {
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+}
+
+.about__photo {
+  margin: 0;
+}
+
+.about__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+@media (max-width: 760px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .about__photo {
+    width: min(100%, 16rem);
+  }
+}
+
 /* ------------------------------------------------------------------ stack */
 .stack {
   display: grid;
