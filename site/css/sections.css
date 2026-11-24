@@ -45,11 +45,35 @@
   text-decoration: none;
 }
 
+/* emblema do cabeçalho: um anel fino com o gradiente da marca (o mesmo do traço do emblema) e,
+   no hover/foco, um brilho suave. Sem movimento com "reduzir animações". */
 .brand img {
+  box-sizing: border-box;
   width: 2rem;
   height: 2rem;
+  border: 1.5px solid transparent;
   border-radius: 22%;
-  background: var(--emblem-tile);
+  background:
+    linear-gradient(var(--ink-950), var(--ink-950)) padding-box,
+    var(--brand-gradient) border-box;
+  transition: transform 200ms var(--ease-out), box-shadow 200ms var(--ease-out);
+}
+
+.brand:hover img,
+.brand:focus-visible img {
+  transform: scale(1.06);
+  box-shadow: 0 0 0.75rem rgb(139 92 246 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand img {
+    transition: none;
+  }
+
+  .brand:hover img,
+  .brand:focus-visible img {
+    transform: none;
+  }
 }
 
 .brand__name {
